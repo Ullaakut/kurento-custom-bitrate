@@ -1,16 +1,29 @@
 [![License badge](https://img.shields.io/badge/license-Apache2-orange.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Documentation badge](https://readthedocs.org/projects/fiware-orion/badge/?version=latest)](http://doc-kurento.readthedocs.org/en/latest/)
-[![Docker badge](https://img.shields.io/docker/pulls/fiware/orion.svg)](https://hub.docker.com/r/fiware/stream-oriented-kurento/)
+[![Docker badge](https://img.shields.io/docker/pulls/ullaakut/kurento-custom-bitrate.svg)](https://hub.docker.com/r/ullaakut/kurento-custom-bitrate)
 [![Support badge]( https://img.shields.io/badge/support-sof-yellowgreen.svg)](http://stackoverflow.com/questions/tagged/kurento)
 
 [![][KurentoImage]][Kurento]
 
 Copyright © 2013-2016 [Kurento]. Licensed under [Apache 2.0 License].
 
-kurento-docker
+kurento-custom-bitrate
 ==============
 
-Kurento utilities for [Docker] containers.
+Fork of [kurento-docker](https://github.com/Kurento/kurento-docker) that simply adds the option to set the OutputBitrate as an environment variable.
+
+How to use it
+-------------
+
+It is exactly the same image, so the usage is the same, except that you can add `-e OUTPUT_BITRATE` to the command line to set the bitrate to the value you want in bits per second.
+
+Example:
+
+```
+docker run -d --name kurento -e KMS_TURN_URL=user:passwd@192.168.2.87:3478 -e OUTPUT_BITRATE=2048000 -p 8888:8888 ullaakut/kurento-custom-bitrate -e GST_DEBUG=Kurento*:5
+```
+
+This will set the maximum output bitrate to 2Mbps.
 
 What is Kurento
 ---------------
