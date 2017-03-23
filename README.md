@@ -20,7 +20,7 @@ It is exactly the same image, so the usage is the same, except that you can add 
 Example:
 
 ```
-docker run -d --name kurento -e KMS_TURN_URL=user:passwd@192.168.2.87:3478 -e OUTPUT_BITRATE=2048000 -p 8888:8888 ullaakut/kurento-custom-bitrate -e GST_DEBUG=Kurento*:5
+docker run -e OUTPUT_BITRATE=2048000 -p 8888:8888 ullaakut/kurento-custom-bitrate
 ```
 
 This will set the maximum output bitrate to 2Mbps.
