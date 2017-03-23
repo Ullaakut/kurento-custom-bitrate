@@ -2,7 +2,11 @@
 set -e
 
 if [ -n "$KMS_TURN_URL" ]; then
-  echo "turnURL=$KMS_TURN_URL" > /etc/kurento/modules/kurento/WebRtcEndpoint.conf.ini
+    echo "turnURL=$KMS_TURN_URL" > /etc/kurento/modules/kurento/WebRtcEndpoint.conf.ini
+fi
+
+if [ -n "$OUTPUT_BITRATE" ]; then
+    echo "outputBitrate=$OUTPUT_BITRATE" > /etc/kurento/modules/kurento/MediaElement.conf.ini
 fi
 
 if [ -n "$KMS_STUN_IP" -a -n "$KMS_STUN_PORT" ]; then
